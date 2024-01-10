@@ -1,17 +1,30 @@
+import java.util.Set;
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Intro with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        StudentRecord studentRecord= new StudentRecord();
 
-        // Press Mayús+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        studentRecord.addStudent("Juan", 85);
+        studentRecord.addStudent("Maria", 90);
+        studentRecord.addStudent("Pedro", 78);
 
-            // Press Mayús+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        System.out.println("¿Esta Juan en el registro de alumnos?:"+studentRecord.isStudentInRecord("Juan"));
+        System.out.println("¿Esta Ana en el registro de alumnos?:"+studentRecord.isStudentInRecord("Ana"));
+
+        System.out.println("Calificacion de Pedro: "+ studentRecord.getGrade("Pedro"));
+
+        studentRecord.removeStudent("Maria");
+        System.out.println("¿Esta Maria en el registro de alumnos?:"+studentRecord.isStudentInRecord("Maria"));
+
+        int calificacion=85;
+        System.out.println("¿La calificacion "+calificacion+" esta en el registro?:"+studentRecord.isGradeInRecord(calificacion));
+        Set<String> studentNames= studentRecord.getStudentNames();
+        System.out.println("Nombres de los alumnos en el registro:");
+        for (String name: studentNames){
+            System.out.println(name);
         }
+
     }
 }
